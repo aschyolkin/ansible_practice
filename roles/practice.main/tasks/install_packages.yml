@@ -18,6 +18,5 @@
       - policycoreutils-python
       - python2-pip
       - nodejs
-      - mc
     state: latest
     update_cache: yes
