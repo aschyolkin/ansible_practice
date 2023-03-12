@@ -5,8 +5,8 @@
 # Install OS packages
 - include_tasks: install_packages.yml
 
-# Install Nginx
-#- include_tasks: deploy_nginx.yml
+# Install Nginx from galaxy
+- include_tasks: install_nginx.yml
 
 - name: "Install Postgres"
   include_role:

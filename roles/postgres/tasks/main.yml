@@ -23,13 +23,13 @@
     state: restarted
     enabled: yes
   
-##- name: "Check if database is available"
-#  postgresql_ping:
-#    db: "{{ db_name }}"
-#  become: yes
-#  become_user: postgres
-#  register: ping_database
-#  failed_when: ping_database.warnings is defined
+- name: "Check if database is available"
+  postgresql_ping:
+    db: "{{ db_name }}"
+  become: yes
+  become_user: postgres
+  register: ping_database
+  failed_when: ping_database.warnings is defined
 
 - name: "Create app database"
   postgresql_db:
@@ -38,7 +38,7 @@
   become: yes
   become_user: postgres
 
-#- name: "Change port from default"
+##- name: "Change port from default"
 #  postgresql_set:
 #    name: port
 #    value: "{{ db_port }} |int"
