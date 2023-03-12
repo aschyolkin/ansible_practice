@@ -3,3 +3,8 @@
   hosts: all
 
   tasks:
+  - include_role:
+      name: practice.main
+    vars:
+      db_config: "postgres_config.yml"
+      app_config: "app_config.yml"

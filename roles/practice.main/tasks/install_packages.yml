@@ -1,0 +1,22 @@
+- name: "Install repos"
+  package:
+    name: 
+      - centos-release-scl-rh
+      - epel-release
+    state: latest
+    update_cache: yes
+
+- name: "Install Ruby and OS packages"
+  package:
+    name: 
+      - "@Development tools"
+      - rh-ruby25-ruby
+      - rh-ruby25-ruby-devel 
+      - epel-release
+      - libxml2-devel
+      - python-psycopg2
+      - policycoreutils-python
+      - python2-pip
+      - nodejs
+    state: latest
+    update_cache: yes

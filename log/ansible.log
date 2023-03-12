@@ -1,0 +1,183 @@
+2023-03-10 19:27:22,145 p=29778 u=vagrant n=ansible | Starting galaxy role install process
+2023-03-10 19:27:22,150 p=29778 u=vagrant n=ansible | [WARNING]: - geerlingguy.nginx (3.1.4) is already installed - use --force to change version to unspecified
+
+2023-03-12 10:59:27,800 p=114552 u=vagrant n=ansible | ERROR! the role 'postgress' was not found in /home/vagrant/ansible_practice/roles:/home/vagrant/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/vagrant/ansible_practice
+
+The error appears to be in '/home/vagrant/ansible_practice/main.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - postgress
+      ^ here
+
+2023-03-12 11:00:41,874 p=114634 u=vagrant n=ansible | PLAY [Ansible Practice playbook] ***************************************************************************************
+2023-03-12 11:00:41,903 p=114634 u=vagrant n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-03-12 11:00:42,071 p=114634 u=vagrant n=ansible | fatal: [centos]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ansible@centos: Permission denied (publickey,password).", "unreachable": true}
+2023-03-12 11:00:42,074 p=114634 u=vagrant n=ansible | PLAY RECAP *************************************************************************************************************
+2023-03-12 11:00:42,076 p=114634 u=vagrant n=ansible | centos                     : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-12 11:02:10,921 p=114717 u=vagrant n=ansible | centos | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ansible@centos: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2023-03-12 11:25:09,679 p=115039 u=vagrant n=ansible | centos | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-03-12 11:25:18,659 p=115067 u=vagrant n=ansible | PLAY [Ansible Practice playbook] ***************************************************************************************
+2023-03-12 11:25:18,682 p=115067 u=vagrant n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-03-12 11:25:20,208 p=115067 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:25:20,228 p=115067 u=vagrant n=ansible | TASK [postgres : Load variables] ***************************************************************************************
+2023-03-12 11:25:20,249 p=115067 u=vagrant n=ansible | fatal: [centos]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'config_file' is undefined\n\nThe error appears to be in '/home/vagrant/ansible_practice/roles/postgres/tasks/main.yml': line 2, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n---\n- name: \"Load variables\"\n  ^ here\n"}
+2023-03-12 11:25:20,252 p=115067 u=vagrant n=ansible | PLAY RECAP *************************************************************************************************************
+2023-03-12 11:25:20,252 p=115067 u=vagrant n=ansible | centos                     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-03-12 11:28:14,148 p=115259 u=vagrant n=ansible | PLAY [Ansible Practice playbook] ***************************************************************************************
+2023-03-12 11:28:14,176 p=115259 u=vagrant n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-03-12 11:28:16,253 p=115259 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:28:16,282 p=115259 u=vagrant n=ansible | TASK [postgres : Load variables] ***************************************************************************************
+2023-03-12 11:28:16,300 p=115259 u=vagrant n=ansible | fatal: [centos]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'config_file' is undefined\n\nThe error appears to be in '/home/vagrant/ansible_practice/roles/postgres/tasks/main.yml': line 2, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n---\n- name: \"Load variables\"\n  ^ here\n"}
+2023-03-12 11:28:16,306 p=115259 u=vagrant n=ansible | PLAY RECAP *************************************************************************************************************
+2023-03-12 11:28:16,307 p=115259 u=vagrant n=ansible | centos                     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-03-12 11:41:31,246 p=115990 u=vagrant n=ansible | PLAY [Ansible Practice playbook] ***************************************************************************************
+2023-03-12 11:41:31,287 p=115990 u=vagrant n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-03-12 11:41:33,175 p=115990 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:41:33,197 p=115990 u=vagrant n=ansible | TASK [include_role : practice.main] ************************************************************************************
+2023-03-12 11:41:33,236 p=115990 u=vagrant n=ansible | TASK [practice.main : Load App variables] ******************************************************************************
+2023-03-12 11:41:33,270 p=115990 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:41:33,281 p=115990 u=vagrant n=ansible | TASK [Install Postgres] ************************************************************************************************
+2023-03-12 11:41:33,310 p=115990 u=vagrant n=ansible | ERROR! the role 'pb.postgres' was not found in /home/vagrant/ansible_practice/roles:/home/vagrant/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/vagrant/ansible_practice
+
+The error appears to be in '/home/vagrant/ansible_practice/roles/practice.main/tasks/main.yml': line 13, column 11, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  include_role:
+    name: pb.postgres
+          ^ here
+
+2023-03-12 11:41:33,311 p=115990 u=vagrant n=ansible | PLAY RECAP *************************************************************************************************************
+2023-03-12 11:41:33,312 p=115990 u=vagrant n=ansible | centos                     : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-12 11:42:05,754 p=116043 u=vagrant n=ansible | PLAY [Ansible Practice playbook] ****************************************************************************************************
+2023-03-12 11:42:05,792 p=116043 u=vagrant n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2023-03-12 11:42:07,127 p=116043 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:42:07,147 p=116043 u=vagrant n=ansible | TASK [include_role : practice.main] *************************************************************************************************
+2023-03-12 11:42:07,191 p=116043 u=vagrant n=ansible | TASK [practice.main : Load App variables] *******************************************************************************************
+2023-03-12 11:42:07,233 p=116043 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:42:07,246 p=116043 u=vagrant n=ansible | TASK [Install Postgres] *************************************************************************************************************
+2023-03-12 11:42:07,297 p=116043 u=vagrant n=ansible | TASK [postgres : Load variables] ****************************************************************************************************
+2023-03-12 11:42:07,340 p=116043 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:42:07,376 p=116043 u=vagrant n=ansible | TASK [postgres : Install Postgres packages] *****************************************************************************************
+2023-03-12 11:42:23,462 p=116043 u=vagrant n=ansible | changed: [centos]
+2023-03-12 11:42:23,479 p=116043 u=vagrant n=ansible | TASK [postgres : Initialize PostgreSQL] *********************************************************************************************
+2023-03-12 11:42:27,463 p=116043 u=vagrant n=ansible | changed: [centos]
+2023-03-12 11:42:27,489 p=116043 u=vagrant n=ansible | TASK [postgres : Start and enable Postgres] *****************************************************************************************
+2023-03-12 11:42:29,678 p=116043 u=vagrant n=ansible | changed: [centos]
+2023-03-12 11:42:29,690 p=116043 u=vagrant n=ansible | TASK [postgres : Create app database] ***********************************************************************************************
+2023-03-12 11:42:30,348 p=116043 u=vagrant n=ansible | [WARNING]: Module remote_tmp /var/lib/pgsql/.ansible/tmp did not exist and was created with a mode of 0700, this may cause issues
+when running as another user. To avoid this, create the remote_tmp dir with the correct permissions manually
+
+2023-03-12 11:42:30,349 p=116043 u=vagrant n=ansible | fatal: [centos]: FAILED! => {"changed": false, "msg": "Failed to import the required Python library (psycopg2) on server-postgres's Python /usr/bin/python. Please read the module documentation and install it in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter"}
+2023-03-12 11:42:30,355 p=116043 u=vagrant n=ansible | PLAY RECAP **************************************************************************************************************************
+2023-03-12 11:42:30,358 p=116043 u=vagrant n=ansible | centos                     : ok=6    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-03-12 11:45:16,565 p=116258 u=vagrant n=ansible | PLAY [Ansible Practice playbook] ****************************************************************************************************
+2023-03-12 11:45:16,603 p=116258 u=vagrant n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2023-03-12 11:45:18,399 p=116258 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:45:18,424 p=116258 u=vagrant n=ansible | TASK [include_role : practice.main] *************************************************************************************************
+2023-03-12 11:45:18,467 p=116258 u=vagrant n=ansible | TASK [practice.main : Load App variables] *******************************************************************************************
+2023-03-12 11:45:18,511 p=116258 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:45:18,522 p=116258 u=vagrant n=ansible | TASK [practice.main : include_tasks] ************************************************************************************************
+2023-03-12 11:45:18,554 p=116258 u=vagrant n=ansible | included: /home/vagrant/ansible_practice/roles/practice.main/tasks/install_packages.yml for centos
+2023-03-12 11:45:18,568 p=116258 u=vagrant n=ansible | TASK [practice.main : Install repos] ************************************************************************************************
+2023-03-12 11:45:26,411 p=116258 u=vagrant n=ansible | changed: [centos]
+2023-03-12 11:45:26,424 p=116258 u=vagrant n=ansible | TASK [practice.main : Install Ruby and OS packages] *********************************************************************************
+2023-03-12 11:48:15,514 p=116258 u=vagrant n=ansible | changed: [centos]
+2023-03-12 11:48:15,523 p=116258 u=vagrant n=ansible | TASK [Install Postgres] *************************************************************************************************************
+2023-03-12 11:48:15,578 p=116258 u=vagrant n=ansible | TASK [postgres : Load variables] ****************************************************************************************************
+2023-03-12 11:48:15,612 p=116258 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:48:15,629 p=116258 u=vagrant n=ansible | TASK [postgres : Install Postgres packages] *****************************************************************************************
+2023-03-12 11:48:43,415 p=116258 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:48:43,438 p=116258 u=vagrant n=ansible | TASK [postgres : Initialize PostgreSQL] *********************************************************************************************
+2023-03-12 11:48:44,210 p=116258 u=vagrant n=ansible | fatal: [centos]: FAILED! => {"changed": true, "cmd": "postgresql-setup initdb", "delta": "0:00:00.108688", "end": "2023-03-10 21:29:30.749758", "msg": "non-zero return code", "rc": 1, "start": "2023-03-10 21:29:30.641070", "stderr": "", "stderr_lines": [], "stdout": "Data directory is not empty!", "stdout_lines": ["Data directory is not empty!"]}
+2023-03-12 11:48:44,210 p=116258 u=vagrant n=ansible | ...ignoring
+2023-03-12 11:48:44,225 p=116258 u=vagrant n=ansible | TASK [postgres : Start and enable Postgres] *****************************************************************************************
+2023-03-12 11:48:47,213 p=116258 u=vagrant n=ansible | changed: [centos]
+2023-03-12 11:48:47,225 p=116258 u=vagrant n=ansible | TASK [postgres : Create app database] ***********************************************************************************************
+2023-03-12 11:48:48,745 p=116258 u=vagrant n=ansible | changed: [centos]
+2023-03-12 11:48:48,755 p=116258 u=vagrant n=ansible | TASK [postgres : Create user for app] ***********************************************************************************************
+2023-03-12 11:48:49,542 p=116258 u=vagrant n=ansible | changed: [centos]
+2023-03-12 11:48:49,554 p=116258 u=vagrant n=ansible | TASK [postgres : Grant access] ******************************************************************************************************
+2023-03-12 11:48:50,207 p=116258 u=vagrant n=ansible | changed: [centos]
+2023-03-12 11:48:50,218 p=116258 u=vagrant n=ansible | TASK [postgres : Allow md5 connection] **********************************************************************************************
+2023-03-12 11:48:50,958 p=116258 u=vagrant n=ansible | changed: [centos]
+2023-03-12 11:48:51,002 p=116258 u=vagrant n=ansible | PLAY RECAP **************************************************************************************************************************
+2023-03-12 11:48:51,002 p=116258 u=vagrant n=ansible | centos                     : ok=13   changed=8    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+2023-03-12 11:52:48,416 p=116725 u=vagrant n=ansible | ansible-playbook [core 2.12.10]
+  config file = /home/vagrant/ansible_practice/ansible.cfg
+  configured module search path = ['/home/vagrant/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/vagrant/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.8.10 (default, Nov 14 2022, 12:59:47) [GCC 9.4.0]
+  jinja version = 2.10.1
+  libyaml = True
+2023-03-12 11:52:48,417 p=116725 u=vagrant n=ansible | Using /home/vagrant/ansible_practice/ansible.cfg as config file
+2023-03-12 11:52:48,550 p=116725 u=vagrant n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2023-03-12 11:52:48,551 p=116725 u=vagrant n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2023-03-12 11:52:48,551 p=116725 u=vagrant n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2023-03-12 11:52:48,553 p=116725 u=vagrant n=ansible | PLAYBOOK: main.yml ******************************************************************************************************************
+2023-03-12 11:52:48,554 p=116725 u=vagrant n=ansible | 1 plays in main.yml
+2023-03-12 11:52:48,556 p=116725 u=vagrant n=ansible | PLAY [Ansible Practice playbook] ****************************************************************************************************
+2023-03-12 11:52:48,593 p=116725 u=vagrant n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2023-03-12 11:52:50,506 p=116725 u=vagrant n=ansible | ok: [centos]
+2023-03-12 11:52:50,518 p=116725 u=vagrant n=ansible | META: ran handlers
+2023-03-12 11:52:50,529 p=116725 u=vagrant n=ansible | TASK [include_role : practice.main] *************************************************************************************************
+2023-03-12 11:52:50,574 p=116725 u=vagrant n=ansible | TASK [practice.main : Load App variables] *******************************************************************************************
+2023-03-12 11:52:50,610 p=116725 u=vagrant n=ansible | ok: [centos] => {"ansible_facts": {"app_archive": "xpaste_practicum-master.zip", "app_dest_folder": "/opt", "app_name": "xpaste", "app_socket": "/var/run/puma.sock"}, "ansible_included_var_files": ["/home/vagrant/ansible_practice/vars/app_config.yml"], "changed": false}
+2023-03-12 11:52:50,622 p=116725 u=vagrant n=ansible | TASK [practice.main : include_tasks] ************************************************************************************************
+2023-03-12 11:52:50,649 p=116725 u=vagrant n=ansible | included: /home/vagrant/ansible_practice/roles/practice.main/tasks/install_packages.yml for centos
+2023-03-12 11:52:50,665 p=116725 u=vagrant n=ansible | TASK [practice.main : Install repos] ************************************************************************************************
+2023-03-12 11:53:18,795 p=116725 u=vagrant n=ansible | ok: [centos] => {"changed": false, "changes": {"installed": [], "updated": []}, "msg": "", "rc": 0, "results": ["All packages providing centos-release-scl-rh are up to date", "All packages providing epel-release are up to date", ""]}
+2023-03-12 11:53:18,805 p=116725 u=vagrant n=ansible | TASK [practice.main : Install Ruby and OS packages] *********************************************************************************
+2023-03-12 11:53:45,244 p=116725 u=vagrant n=ansible | ok: [centos] => {"changed": false, "changes": {"installed": [], "updated": [["@Development tools", null]]}, "msg": "", "rc": 0, "results": ["All packages providing rh-ruby25-ruby are up to date", "All packages providing rh-ruby25-ruby-devel are up to date", "All packages providing epel-release are up to date", "All packages providing libxml2-devel are up to date", "All packages providing python-psycopg2 are up to date", "All packages providing policycoreutils-python are up to date", "All packages providing python2-pip are up to date", "All packages providing nodejs are up to date", "Loaded plugins: fastestmirror\nLoading mirror speeds from cached hostfile\n * base: mirror.fysik.dtu.dk\n * centos-sclo-rh: mirror.fysik.dtu.dk\n * epel: fedora-epel.koyanet.lv\n * extras: mirror.fysik.dtu.dk\n * updates: mirror.fysik.dtu.dk\nPackage rh-ruby25-ruby-2.5.9-9.el7.x86_64 already installed and latest version\nPackage rh-ruby25-ruby-devel-2.5.9-9.el7.x86_64 already installed and latest version\nPackage epel-release-7-14.noarch already installed and latest version\nPackage libxml2-devel-2.9.1-6.el7_9.6.x86_64 already installed and latest version\nPackage python-psycopg2-2.5.1-4.el7.x86_64 already installed and latest version\nPackage policycoreutils-python-2.5-34.el7.x86_64 already installed and latest version\nPackage python2-pip-8.1.2-14.el7.noarch already installed and latest version\nPackage 1:nodejs-16.18.1-3.el7.x86_64 already installed and latest version\nNothing to do\n"]}
+2023-03-12 11:53:45,261 p=116725 u=vagrant n=ansible | TASK [Install Postgres] *************************************************************************************************************
+2023-03-12 11:53:45,297 p=116725 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_db to community.postgresql.postgresql_db
+2023-03-12 11:53:45,302 p=116725 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_user to community.postgresql.postgresql_user
+2023-03-12 11:53:45,304 p=116725 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_privs to community.postgresql.postgresql_privs
+2023-03-12 11:53:45,306 p=116725 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_pg_hba to community.postgresql.postgresql_pg_hba
+2023-03-12 11:53:45,325 p=116725 u=vagrant n=ansible | TASK [postgres : Load variables] ****************************************************************************************************
+2023-03-12 11:53:45,360 p=116725 u=vagrant n=ansible | ok: [centos] => {"ansible_facts": {"db_host": "127.0.0.1", "db_name": "test_db", "db_passwd": "password", "db_port": 5432, "db_user": "test_user"}, "ansible_included_var_files": ["/home/vagrant/ansible_practice/vars/postgres_config.yml"], "changed": false}
+2023-03-12 11:53:45,373 p=116725 u=vagrant n=ansible | TASK [postgres : Install Postgres packages] *****************************************************************************************
+2023-03-12 11:54:11,574 p=116725 u=vagrant n=ansible | ok: [centos] => {"changed": false, "changes": {"installed": [], "updated": []}, "msg": "", "rc": 0, "results": ["All packages providing postgresql are up to date", "All packages providing postgresql-libs are up to date", "All packages providing postgresql-server are up to date", "All packages providing postgresql-devel are up to date", ""]}
+2023-03-12 11:54:11,584 p=116725 u=vagrant n=ansible | TASK [postgres : Initialize PostgreSQL] *********************************************************************************************
+2023-03-12 11:54:12,269 p=116725 u=vagrant n=ansible | fatal: [centos]: FAILED! => {"changed": true, "cmd": "postgresql-setup initdb", "delta": "0:00:00.069263", "end": "2023-03-10 21:35:26.143122", "msg": "non-zero return code", "rc": 1, "start": "2023-03-10 21:35:26.073859", "stderr": "", "stderr_lines": [], "stdout": "Data directory is not empty!", "stdout_lines": ["Data directory is not empty!"]}
+2023-03-12 11:54:12,270 p=116725 u=vagrant n=ansible | ...ignoring
+2023-03-12 11:54:12,282 p=116725 u=vagrant n=ansible | TASK [postgres : Start and enable Postgres] *****************************************************************************************
+2023-03-12 11:54:15,162 p=116725 u=vagrant n=ansible | changed: [centos] => {"changed": true, "enabled": true, "name": "postgresql.service", "state": "started", "status": {"ActiveEnterTimestamp": "Fri 2023-03-10 21:29:33 UTC", "ActiveEnterTimestampMonotonic": "11452593818", "ActiveExitTimestamp": "Fri 2023-03-10 21:29:31 UTC", "ActiveExitTimestampMonotonic": "11450439758", "ActiveState": "active", "After": "basic.target systemd-journald.socket system.slice network.target", "AllowIsolate": "no", "AmbientCapabilities": "0", "AssertResult": "yes", "AssertTimestamp": "Fri 2023-03-10 21:29:32 UTC", "AssertTimestampMonotonic": "11451471132", "Before": "shutdown.target multi-user.target", "BlockIOAccounting": "no", "BlockIOWeight": "18446744073709551615", "CPUAccounting": "no", "CPUQuotaPerSecUSec": "infinity", "CPUSchedulingPolicy": "0", "CPUSchedulingPriority": "0", "CPUSchedulingResetOnFork": "no", "CPUShares": "18446744073709551615", "CanIsolate": "no", "CanReload": "yes", "CanStart": "yes", "CanStop": "yes", "CapabilityBoundingSet": "18446744073709551615", "CollectMode": "inactive", "ConditionResult": "yes", "ConditionTimestamp": "Fri 2023-03-10 21:29:32 UTC", "ConditionTimestampMonotonic": "11451471132", "Conflicts": "shutdown.target", "ControlGroup": "/system.slice/postgresql.service", "ControlPID": "0", "DefaultDependencies": "yes", "Delegate": "no", "Description": "PostgreSQL database server", "DevicePolicy": "auto", "Environment": "PGPORT=5432 PGDATA=/var/lib/pgsql/data", "ExecMainCode": "0", "ExecMainExitTimestampMonotonic": "0", "ExecMainPID": "22644", "ExecMainStartTimestamp": "Fri 2023-03-10 21:29:33 UTC", "ExecMainStartTimestampMonotonic": "11452593776", "ExecMainStatus": "0", "ExecReload": "{ path=/usr/bin/pg_ctl ; argv[]=/usr/bin/pg_ctl reload -D ${PGDATA} -s ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStart": "{ path=/usr/bin/pg_ctl ; argv[]=/usr/bin/pg_ctl start -D ${PGDATA} -s -o -p ${PGPORT} -w -t 300 ; ignore_errors=no ; start_time=[Fri 2023-03-10 21:29:32 UTC] ; stop_time=[Fri 2023-03-10 21:29:33 UTC] ; pid=22641 ; code=exited ; status=0 }", "ExecStartPre": "{ path=/usr/bin/postgresql-check-db-dir ; argv[]=/usr/bin/postgresql-check-db-dir ${PGDATA} ; ignore_errors=no ; start_time=[Fri 2023-03-10 21:29:32 UTC] ; stop_time=[Fri 2023-03-10 21:29:32 UTC] ; pid=22635 ; code=exited ; status=0 }", "ExecStop": "{ path=/usr/bin/pg_ctl ; argv[]=/usr/bin/pg_ctl stop -D ${PGDATA} -s -m fast ; ignore_errors=no ; start_time=[Fri 2023-03-10 21:29:31 UTC] ; stop_time=[Fri 2023-03-10 21:29:32 UTC] ; pid=22633 ; code=exited ; status=0 }", "FailureAction": "none", "FileDescriptorStoreMax": "0", "FragmentPath": "/usr/lib/systemd/system/postgresql.service", "Group": "postgres", "GuessMainPID": "yes", "IOScheduling": "0", "Id": "postgresql.service", "IgnoreOnIsolate": "no", "IgnoreOnSnapshot": "no", "IgnoreSIGPIPE": "yes", "InactiveEnterTimestamp": "Fri 2023-03-10 21:29:32 UTC", "InactiveEnterTimestampMonotonic": "11451469744", "InactiveExitTimestamp": "Fri 2023-03-10 21:29:32 UTC", "InactiveExitTimestampMonotonic": "11451472109", "JobTimeoutAction": "none", "JobTimeoutUSec": "0", "KillMode": "control-group", "KillSignal": "15", "LimitAS": "18446744073709551615", "LimitCORE": "18446744073709551615", "LimitCPU": "18446744073709551615", "LimitDATA": "18446744073709551615", "LimitFSIZE": "18446744073709551615", "LimitLOCKS": "18446744073709551615", "LimitMEMLOCK": "65536", "LimitMSGQUEUE": "819200", "LimitNICE": "0", "LimitNOFILE": "4096", "LimitNPROC": "3880", "LimitRSS": "18446744073709551615", "LimitRTPRIO": "0", "LimitRTTIME": "18446744073709551615", "LimitSIGPENDING": "3880", "LimitSTACK": "18446744073709551615", "LoadState": "loaded", "MainPID": "22644", "MemoryAccounting": "no", "MemoryCurrent": "18446744073709551615", "MemoryLimit": "18446744073709551615", "MountFlags": "0", "Names": "postgresql.service", "NeedDaemonReload": "no", "Nice": "0", "NoNewPrivileges": "no", "NonBlocking": "no", "NotifyAccess": "none", "OOMScoreAdjust": "-1000", "OnFailureJobMode": "replace", "PermissionsStartOnly": "no", "PrivateDevices": "no", "PrivateNetwork": "no", "PrivateTmp": "no", "ProtectHome": "no", "ProtectSystem": "no", "RefuseManualStart": "no", "RefuseManualStop": "no", "RemainAfterExit": "no", "Requires": "system.slice basic.target", "Restart": "no", "RestartUSec": "100ms", "Result": "success", "RootDirectoryStartOnly": "no", "RuntimeDirectoryMode": "0755", "SameProcessGroup": "no", "SecureBits": "0", "SendSIGHUP": "no", "SendSIGKILL": "yes", "Slice": "system.slice", "StandardError": "inherit", "StandardInput": "null", "StandardOutput": "journal", "StartLimitAction": "none", "StartLimitBurst": "5", "StartLimitInterval": "10000000", "StartupBlockIOWeight": "18446744073709551615", "StartupCPUShares": "18446744073709551615", "StatusErrno": "0", "StopWhenUnneeded": "no", "SubState": "running", "SyslogLevelPrefix": "yes", "SyslogPriority": "30", "SystemCallErrorNumber": "0", "TTYReset": "no", "TTYVHangup": "no", "TTYVTDisallocate": "no", "TasksAccounting": "no", "TasksCurrent": "18446744073709551615", "TasksMax": "18446744073709551615", "TimeoutStartUSec": "5min", "TimeoutStopUSec": "5min", "TimerSlackNSec": "50000", "Transient": "no", "Type": "forking", "UMask": "0022", "UnitFilePreset": "disabled", "UnitFileState": "enabled", "User": "postgres", "WantedBy": "multi-user.target", "WatchdogTimestamp": "Fri 2023-03-10 21:29:33 UTC", "WatchdogTimestampMonotonic": "11452593794", "WatchdogUSec": "0"}}
+2023-03-12 11:54:15,174 p=116725 u=vagrant n=ansible | TASK [postgres : Create app database] ***********************************************************************************************
+2023-03-12 11:54:15,214 p=116866 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_db to community.postgresql.postgresql_db
+2023-03-12 11:54:15,312 p=116866 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_db to community.postgresql.postgresql_db
+2023-03-12 11:54:15,888 p=116725 u=vagrant n=ansible | ok: [centos] => {"changed": false, "db": "test_db", "executed_commands": []}
+2023-03-12 11:54:15,899 p=116725 u=vagrant n=ansible | TASK [postgres : Create user for app] ***********************************************************************************************
+2023-03-12 11:54:15,934 p=116875 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_user to community.postgresql.postgresql_user
+2023-03-12 11:54:16,032 p=116875 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_user to community.postgresql.postgresql_user
+2023-03-12 11:54:16,592 p=116725 u=vagrant n=ansible | ok: [centos] => {"changed": false, "queries": [], "user": "test_user"}
+2023-03-12 11:54:16,603 p=116725 u=vagrant n=ansible | TASK [postgres : Grant access] ******************************************************************************************************
+2023-03-12 11:54:16,644 p=116884 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_privs to community.postgresql.postgresql_privs
+2023-03-12 11:54:16,736 p=116884 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_privs to community.postgresql.postgresql_privs
+2023-03-12 11:54:17,334 p=116725 u=vagrant n=ansible | ok: [centos] => {"changed": false, "queries": ["GRANT ALL ON database \"test_db\" TO \"test_user\";\nREVOKE GRANT OPTION FOR ALL ON database \"test_db\" FROM \"test_user\";"]}
+2023-03-12 11:54:17,346 p=116725 u=vagrant n=ansible | TASK [postgres : Allow md5 connection] **********************************************************************************************
+2023-03-12 11:54:17,382 p=116895 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_pg_hba to community.postgresql.postgresql_pg_hba
+2023-03-12 11:54:17,477 p=116895 u=vagrant n=ansible | redirecting (type: modules) ansible.builtin.postgresql_pg_hba to community.postgresql.postgresql_pg_hba
+2023-03-12 11:54:17,998 p=116725 u=vagrant n=ansible | ok: [centos] => {"changed": false, "msgs": ["Adding"], "pg_hba": [{"db": "all", "method": "peer", "type": "local", "usr": "all"}, {"db": "all", "method": "md5", "src": "samehost", "type": "host", "usr": "test_user"}, {"db": "all", "method": "ident", "src": "127.0.0.1/32", "type": "host", "usr": "all"}, {"db": "all", "method": "ident", "src": "::1/128", "type": "host", "usr": "all"}]}
+2023-03-12 11:54:18,011 p=116725 u=vagrant n=ansible | META: role_complete for centos
+2023-03-12 11:54:18,023 p=116725 u=vagrant n=ansible | META: role_complete for centos
+2023-03-12 11:54:18,036 p=116725 u=vagrant n=ansible | META: ran handlers
+2023-03-12 11:54:18,046 p=116725 u=vagrant n=ansible | META: ran handlers
+2023-03-12 11:54:18,053 p=116725 u=vagrant n=ansible | PLAY RECAP **************************************************************************************************************************
+2023-03-12 11:54:18,054 p=116725 u=vagrant n=ansible | centos                     : ok=13   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   

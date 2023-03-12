@@ -1,0 +1,19 @@
+- name: "Load App variables"
+  include_vars:
+    file: "{{ app_config }}"
+
+# Install OS packages
+- include_tasks: install_packages.yml
+
+# Install Nginx
+#- include_tasks: deploy_nginx.yml
+
+- name: "Install Postgres"
+  include_role:
+    name: postgres
+  vars:
+    config_file: "{{ db_config }}"
+
+# Deploy Application
+#- include_tasks: deploy_app.yml
+
