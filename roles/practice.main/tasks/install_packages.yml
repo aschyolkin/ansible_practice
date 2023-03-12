@@ -10,13 +10,14 @@
   package:
     name: 
       - "@Development tools"
-      - rh-ruby25-ruby
-      - rh-ruby25-ruby-devel 
+      - rh-ruby26-ruby.x86_64
+      - rh-ruby26-ruby-devel.x86_64 
       - epel-release
       - libxml2-devel
       - python-psycopg2
       - policycoreutils-python
       - python2-pip
       - nodejs
+      - mc
     state: latest
     update_cache: yes

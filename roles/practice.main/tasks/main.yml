@@ -15,5 +15,5 @@
     config_file: "{{ db_config }}"
 
 # Deploy Application
-#- include_tasks: deploy_app.yml
+- include_tasks: deploy_app.yml
 
