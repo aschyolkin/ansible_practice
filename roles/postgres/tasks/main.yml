@@ -38,11 +38,6 @@
   become: yes
   become_user: postgres
 
-##- name: "Change port from default"
-#  postgresql_set:
-#    name: port
-#    value: "{{ db_port }} |int"
-
 - name: "Create user for app"
   postgresql_user:
     name: "{{ db_user }}"
